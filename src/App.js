@@ -1,24 +1,15 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
 
 function App() {
+
+  const [tag, setTag] = useState(true);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div style={tag ? { backgroundColor: 'white' } : { backgroundColor: 'black' }} className="Container">
+      <h1 style={tag ? { color: 'black' } : { color: 'white' }}>{tag ? 'Tag' : 'Nacht'}</h1>
+      <button onClick={() => setTag(!tag)}>{tag ? 'Change to Nacht' : 'Change to Tag'} </button>
+    </div >
   );
 }
 
